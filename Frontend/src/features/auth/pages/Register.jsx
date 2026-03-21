@@ -8,7 +8,7 @@ const Register = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const {loading, handleRegister} = useAuth();
+  const { loading, handleRegister } = useAuth();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -16,12 +16,13 @@ const Register = () => {
     navigate("/login");
   };
 
-  if(loading){
+  if (loading) {
     return (
-      <main>
-        <h1>Loading...</h1>
-      </main>
-    )
+      <div className="loader-container">
+        <div className="spinner"></div>
+        <p>Logging you in...</p>
+      </div>
+    );
   }
   return (
     <main>

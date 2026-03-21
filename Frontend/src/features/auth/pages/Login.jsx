@@ -4,7 +4,6 @@ import { Link, useNavigate } from "react-router";
 import { useAuth } from "../hooks/useAuth";
 import { useState } from "react";
 
-
 const Login = () => {
   const { loading, handleLogin } = useAuth();
   const navigate = useNavigate();
@@ -14,17 +13,30 @@ const Login = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    await handleLogin({email, password})
-    navigate('/');
+    // await handleLogin({email, password})
+    // navigate('/');
+
+     await handleLogin({ email, password });
+
+    //if (success) {
+      navigate("/");
+    //}
   };
 
-  if(loading){
-    return (
-        <main>
-            <h1>Loading...</h1>
-        </main>
-    )
-  }
+  if (loading) {
+  return (
+    // <div className="form-container skeleton">
+    //   <div className="skeleton-title"></div>
+    //   <div className="skeleton-input"></div>
+    //   <div className="skeleton-input"></div>
+    //   <div className="skeleton-button"></div>
+    // </div>
+    <div className="loader-container">
+      <div className="spinner"></div>
+      <p>Logging you in...</p>
+    </div>
+  );
+}
   return (
     <main>
       <div className="form-container">
