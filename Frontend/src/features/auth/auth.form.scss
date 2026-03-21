@@ -40,3 +40,64 @@ main{
         text-decoration: none;
     }
 }
+
+// .skeleton div {
+//   background: linear-gradient(
+//     90deg,
+//     #eee 25%,
+//     #ddd 37%,
+//     #eee 63%
+//   );
+//   animation: shimmer 1.4s infinite;
+//   border-radius: 6px;
+// }
+
+// .skeleton-title {
+//   height: 30px;
+//   width: 40%;
+//   margin-bottom: 20px;
+// }
+
+// .skeleton-input {
+//   height: 40px;
+//   margin-bottom: 15px;
+// }
+
+// .skeleton-button {
+//   height: 45px;
+//   width: 100%;
+// }
+
+// @keyframes shimmer {
+//   0% { background-position: -500px 0; }
+//   100% { background-position: 500px 0; }
+// }
+
+.loader-container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+}
+
+.spinner {
+  width: 50px;
+  height: 50px;
+  border: 5px solid #ddd;
+  border-top: 5px solid #4f46e5; // main color
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.loader-container p {
+  font-size: 14px;
+  color: #555;
+}
