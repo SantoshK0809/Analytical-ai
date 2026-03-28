@@ -24,7 +24,7 @@ And generates:
 
 ### Frontend
 
-* React (v19)
+* React 
 * Vite
 * React Router
 * Axios
@@ -35,7 +35,7 @@ And generates:
 ### Backend
 
 * Node.js
-* Express (v5)
+* Express 
 * MongoDB + Mongoose
 
 ---
