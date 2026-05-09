@@ -1,5 +1,5 @@
 import axios from "axios";
-import server from "../../../environment";
+import server from "../../../environment.js";
 
 const api = axios.create({
     baseURL: server,
