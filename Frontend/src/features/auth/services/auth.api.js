@@ -1,7 +1,8 @@
 import axios from "axios";
+import server from "../../../environment";
 
 const api = axios.create({
-    baseURL: "http://localhost:3000",
+    baseURL: server,
     withCredentials: true
 });
 
@@ -18,6 +19,7 @@ export async function register({ username, email, password }) {
     return response.data;
   } catch (err) {
     console.log(err.message);
+    throw err;
   }
 }
 
@@ -33,6 +35,7 @@ export async function login({ email, password }) {
     return response.data;
   } catch (err) {
     console.log(err.message);
+    throw err;
   }
 }
 

@@ -43,9 +43,15 @@ async function handleRegister(req, res) {
       { expiresIn: "1d" },
     );
 
+    // res.cookie("token", token, {
+    //   httpOnly: true,
+    //   secure: process.env.NODE_ENV === "production",
+    // });
+
     res.cookie("token", token, {
       httpOnly: true,
       secure: process.env.NODE_ENV === "production",
+      sameSite: process.env.NODE_ENV === "production" ? "none" : "lax", // ✅ Required for cross-domain cookies
     });
 
     res.status(201).json({
@@ -98,9 +104,15 @@ async function handleUserLogin(req, res) {
       { expiresIn: "1d" },
     );
 
+    // res.cookie("token", token, {
+    //   httpOnly: true,
+    //   secure: process.env.NODE_ENV === "production",
+    // });
+
     res.cookie("token", token, {
       httpOnly: true,
       secure: process.env.NODE_ENV === "production",
+      sameSite: process.env.NODE_ENV === "production" ? "none" : "lax", // ✅ Required for cross-domain cookies
     });
 
     res.status(200).json({
@@ -146,21 +158,20 @@ async function handleUserLogout(req, res) {
  * @access Private
  */
 async function handleGetUser(req, res) {
-    try {
-        const user = await User.findById(req.user.id).select("-password");
+  try {
+    const user = await User.findById(req.user.id).select("-password");
 
-        res.status(200).json({
-          message: "User information retrieved successfully.",
-          user: {
-            id: user._id,
-            username: user.username,
-            email: user.email,
-          }
-        });
-
-    } catch (err) {
-        return res.status(500).json({ message: "Internal server error." });
-    }
+    res.status(200).json({
+      message: "User information retrieved successfully.",
+      user: {
+        id: user._id,
+        username: user.username,
+        email: user.email,
+      },
+    });
+  } catch (err) {
+    return res.status(500).json({ message: "Internal server error." });
+  }
 }
 
 module.exports = {
