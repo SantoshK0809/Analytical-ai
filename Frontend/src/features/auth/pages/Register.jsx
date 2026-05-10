@@ -7,20 +7,26 @@ const Register = () => {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
 
   const { loading, handleRegister } = useAuth();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    await handleRegister({ username, email, password });
-    navigate("/login");
+    setError("");
+    try {
+      await handleRegister({ username, email, password });
+      navigate("/login");
+    } catch (err) {
+      setError(err.message);
+    }
   };
 
   if (loading) {
     return (
       <div className="loader-container">
         <div className="spinner"></div>
-        <p>Logging you in...</p>
+        <p>Registering...</p>
       </div>
     );
   }
@@ -28,6 +34,7 @@ const Register = () => {
     <main>
       <div className="form-container">
         <h1>Register</h1>
+        {error && <p className="error-message" style={{ color: "red", marginBottom: "10px" }}>{error}</p>}
         <form onSubmit={handleSubmit}>
           <div className="input-group">
             <label htmlFor="username">Username</label>

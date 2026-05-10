@@ -13,6 +13,7 @@ export const useAuth = () => {
       setUser(data.user);
     } catch (err) {
       console.log(err.message);
+      throw new Error(err.response?.data?.message || "Login failed");
     } finally {
       setLoading(false);
     }
@@ -25,6 +26,7 @@ export const useAuth = () => {
       setUser(data.user);
     } catch (err) {
       console.log(err.message);
+      throw new Error(err.response?.data?.message || "Registration failed");
     } finally {
       setLoading(false);
     }
