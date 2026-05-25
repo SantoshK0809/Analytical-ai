@@ -1,0 +1,53 @@
+@import "tailwindcss";
+
+@theme {
+  /* Premium Dark Theme Palette */
+  --color-background: #030712;
+  --color-foreground: #f9fafb;
+  
+  --color-border: rgba(255, 255, 255, 0.08);
+  
+  --color-surface: rgba(255, 255, 255, 0.02);
+  --color-surface-elevated: rgba(255, 255, 255, 0.05);
+  
+  --color-primary: #ef4444;
+  --color-primary-foreground: #ffffff;
+  
+  --color-muted: rgba(255, 255, 255, 0.08);
+  --color-muted-foreground: #9ca3af;
+}
+
+/* Custom Tailwind v4 Utilities mapping the newly pasted classes */
+@utility bg-gradient-hero {
+  background: radial-gradient(circle at 30% 20%, rgba(239, 68, 68, 0.15), transparent 50%),
+              radial-gradient(circle at 80% 80%, rgba(239, 68, 68, 0.05), transparent 50%),
+              #030712;
+}
+
+@utility bg-gradient-primary {
+  background: linear-gradient(135deg, #ef4444 0%, #b91c1c 100%);
+}
+
+@utility bg-gradient-card {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.01) 100%);
+}
+
+@utility text-gradient {
+  background: linear-gradient(135deg, #ffffff 30%, #ef4444 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  display: inline-block;
+}
+
+@utility shadow-glow {
+  box-shadow: 0 0 25px rgba(239, 68, 68, 0.15);
+}
+
+@utility shadow-elevated {
+  box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.7);
+}
+
+@utility transition-smooth {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
