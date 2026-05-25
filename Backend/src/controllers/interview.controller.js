@@ -11,9 +11,11 @@ async function generateInterviewReportController(req, res) {
     let resumeContent = "";
 
     if (resumePdf) {
-      resumeContent = await new pdfParse.PDFParse(
+      const parsedContent = await new pdfParse.PDFParse(
         Uint8Array.from(resumePdf.buffer),
       ).getText();
+      
+      resumeContent = typeof parsedContent === "string" ? parsedContent : (parsedContent?.text || "");
     }
 
     const { selfDescription, jobDescription } = req.body;
@@ -25,7 +27,7 @@ async function generateInterviewReportController(req, res) {
     }
 
     const interviewReportByAi = await generateInterviewReport({
-      resume: resumeContent.text || "",
+      resume: resumeContent,
       selfDescription,
       jobDescription,
     });
@@ -35,7 +37,7 @@ async function generateInterviewReportController(req, res) {
     const interviewReport = await interviewReportModel.create({
       user: req.user.id,
       title,
-      resume: resumeContent.text || "",
+      resume: resumeContent,
       selfDescription,
       jobDescription,
       ...interviewReportByAi,
