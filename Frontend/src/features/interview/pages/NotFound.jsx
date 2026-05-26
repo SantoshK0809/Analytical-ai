@@ -188,14 +188,14 @@ const NotFound = () => {
                 <Link
                   to="/"
                   className="flex items-center gap-2 rounded-xl
-                bg-red-600 px-5 py-3
+                bg-red-600 px-5 py-2
                 font-medium hover:bg-red-700 transition"
                 >
                   <Home size={16} />
                   Home
                 </Link>
 
-                <Link
+                {/* <Link
                   to="/explore"
                   className="flex items-center gap-2 rounded-xl
                 border border-white/10
@@ -206,7 +206,7 @@ const NotFound = () => {
                 >
                   Explore
                   <ArrowRight size={16} />
-                </Link>
+                </Link> */}
               </div>
             </div>
 

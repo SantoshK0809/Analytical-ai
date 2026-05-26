@@ -1,90 +1,3 @@
-// import React, { useState } from "react";
-// import { Link, useNavigate } from "react-router";
-// import { useAuth } from "../hooks/useAuth";
-
-// const Register = () => {
-//   const navigate = useNavigate();
-//   const [username, setUsername] = useState("");
-//   const [email, setEmail] = useState("");
-//   const [password, setPassword] = useState("");
-//   const [error, setError] = useState("");
-
-//   const { loading, handleRegister } = useAuth();
-
-//   const handleSubmit = async (e) => {
-//     e.preventDefault();
-//     setError("");
-//     try {
-//       await handleRegister({ username, email, password });
-//       navigate("/login");
-//     } catch (err) {
-//       setError(err.message);
-//     }
-//   };
-
-//   if (loading) {
-//     return (
-//       <div className="loader-container">
-//         <div className="spinner"></div>
-//         <p>Registering...</p>
-//       </div>
-//     );
-//   }
-//   return (
-//     <main>
-//       <div className="form-container">
-//         <h1>Register</h1>
-//         {error && <p className="error-message" style={{ color: "red", marginBottom: "10px" }}>{error}</p>}
-//         <form onSubmit={handleSubmit}>
-//           <div className="input-group">
-//             <label htmlFor="username">Username</label>
-//             <input
-//               onChange={(e) => {
-//                 setUsername(e.target.value);
-//               }}
-//               type="text"
-//               placeholder="Enter username"
-//               id="username"
-//               name="username"
-//             />
-//           </div>
-//           <div className="input-group">
-//             <label htmlFor="email">Email</label>
-//             <input
-//               onChange={(e) => {
-//                 setEmail(e.target.value);
-//               }}
-//               type="email"
-//               placeholder="Enter email address"
-//               id="email"
-//               name="email"
-//             />
-//           </div>
-//           <div className="input-group">
-//             <label htmlFor="password">Password</label>
-//             <input
-//               onChange={(e) => {
-//                 setPassword(e.target.value);
-//               }}
-//               type="password"
-//               placeholder="Enter password"
-//               id="password"
-//               name="password"
-//             />
-//           </div>
-//           <button className="button primary-button">Register</button>
-//         </form>
-
-//         <p>
-//           Already have an account ? <Link to={"/login"}> Login </Link>
-//         </p>
-//       </div>
-//     </main>
-//   );
-// };
-
-// export default Register;
-
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { Mail, Lock, User, Loader2, Sparkles } from "lucide-react";
@@ -139,23 +52,6 @@ function Register() {
     }
   };
 
-  // const onSubmit = (e) => {
-  //   e.preventDefault();
-
-  //   setLoading(true);
-  //   setTimeout(() => {
-  //     localStorage.setItem(
-  //       "analyticsai_user",
-  //       JSON.stringify({ name: username, email: email }),
-  //     );
-  //     toast.success("Account created!", {
-  //       description: `Welcome, ${username}`,
-  //     });
-  //     setLoading(false);
-  //     setTimeout(() => navigate("/analyze"), 600);
-  //   }, 1000);
-  // };
-
   return (
     <div className="flex text-white min-h-screen items-center justify-center bg-gradient-hero px-4 py-12">
       <div className="w-full max-w-md">
@@ -184,7 +80,7 @@ function Register() {
                 <input
                   value={username}
                   onChange={(e) => setUsername(e.target.value)}
-                  placeholder="Jane Doe"
+                  placeholder="Enter your name"
                   className="w-full rounded-lg border border-border bg-input py-2.5 pl-10 pr-3 text-sm outline-none transition-smooth focus:border-primary focus:ring-2 focus:ring-primary/30"
                 />
               </div>
@@ -197,7 +93,7 @@ function Register() {
                   type="email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  placeholder="you@example.com"
+                  placeholder="Enter your email"
                   className="w-full rounded-lg border border-border bg-input py-2.5 pl-10 pr-3 text-sm outline-none transition-smooth focus:border-primary focus:ring-2 focus:ring-primary/30"
                 />
               </div>

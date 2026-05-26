@@ -497,7 +497,7 @@ function LandingPage() {
             </p>
             <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">
               <Link
-                to="/analyze"
+                to="/home"
                 className="inline-flex w-full items-center justify-center gap-2 rounded-lg bg-gradient-primary px-6 py-3 text-sm font-semibold text-primary-foreground shadow-glow transition-smooth hover:scale-105 sm:w-auto"
               >
                 Start Analyzing <ArrowRight className="h-4 w-4" />
@@ -554,7 +554,7 @@ function LandingPage() {
               It takes less than 30 seconds. No credit card required.
             </p>
             <Link
-              to="/analyze"
+              to="/home"
               className="mt-8 inline-flex items-center gap-2 rounded-lg bg-gradient-primary px-6 py-3 text-sm font-semibold text-primary-foreground shadow-glow transition-smooth hover:scale-105"
             >
               Try AnalyticsAI free <ArrowRight className="h-4 w-4" />
