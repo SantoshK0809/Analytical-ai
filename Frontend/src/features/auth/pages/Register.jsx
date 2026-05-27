@@ -1,6 +1,6 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
-import { Mail, Lock, User, Loader2, Sparkles } from "lucide-react";
+import { Mail, Lock, User, Loader2, Sparkles, ArrowLeft } from "lucide-react";
 import { toast } from "sonner";
 import { useAuth } from "../hooks/useAuth";
 
@@ -62,6 +62,14 @@ function Register() {
           <span className="text-xl font-bold">
             Analytics<span className="text-primary">AI</span>
           </span>
+        </Link>
+
+        <Link
+          to="/"
+          className="flex items-center cursor-pointer bg-[var(--surface-elevated)] p-2 gap-2 text-sm text-muted-foreground hover:text-primary transition"
+        >
+          <ArrowLeft size={16} />
+          Back to Home
         </Link>
 
         <div className="rounded-2xl border border-border bg-gradient-card p-8 shadow-elevated">
