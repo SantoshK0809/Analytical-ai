@@ -110,7 +110,7 @@ function Interview() {
   if (!report) {
     return (
       <div className="min-h-screen bg-background text-foreground">
-        <Navbar />
+        <LoggedInNavbar />
         <div className="mx-auto max-w-2xl px-4 py-20 text-center flex flex-col items-center gap-4">
           <h1 className="text-2xl font-bold">Report not found</h1>
           <p className="text-muted-foreground">
