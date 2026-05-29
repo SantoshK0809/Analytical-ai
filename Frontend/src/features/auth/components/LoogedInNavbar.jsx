@@ -71,13 +71,14 @@ export default function LoggedInNavbar() {
               const Icon = item.icon;
 
               return (
-                <button
+                <Link
                   key={item.label}
+                  to={item.path}
                   className="flex items-center cursor-pointer gap-2 px-4 py-2 rounded-lg text-sm text-muted-foreground transition-all hover:bg-[var(--surface-elevated)] hover:text-white"
                 >
                   <Icon className="h-4 w-4" />
                   {item.label}
-                </button>
+                </Link>
               );
             })}
           </nav>
@@ -158,13 +159,14 @@ export default function LoggedInNavbar() {
               const Icon = item.icon;
 
               return (
-                <button
+                <Link
                   key={item.label}
+                  to={item.path}
                   className="flex items-center gap-3 rounded-lg px-4 py-3 text-sm hover:bg-[var(--surface-elevated)]"
                 >
                   <Icon className="h-4 w-4" />
                   {item.label}
-                </button>
+                </Link>
               );
             })}
           </div>

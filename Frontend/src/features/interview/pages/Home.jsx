@@ -39,10 +39,12 @@ const Home = () => {
       return;
     }
 
+    const toastId = toast.loading("Generating your interview strategy...");
+
     try {
-      setTimeout(() => {
-        toast.loading("Generating your interview strategy...");
-      }, 1000);
+      // setTimeout(() => {
+      //   toast.loading("Generating your interview strategy...");
+      // }, 1000);
       const data = await generateReport({
         jobDescription,
         selfDescription,
@@ -50,7 +52,9 @@ const Home = () => {
       });
 
       if (data && data._id) {
-        toast.success("Interview strategy generated successfully!");
+        toast.success("Interview strategy generated successfully!", {
+          id: toastId,
+        });
         navigate(`/interview/${data._id}`);
       }
     } catch (error) {
@@ -246,7 +250,7 @@ const Home = () => {
             </a>
           ))}
         </footer>
-        {reports.length > 0 && (
+        {/* {reports.length > 0 && (
           <section className="mx-auto max-w-7xl mt-10">
             <h2 className="font-bold text-2xl mb-6">Recent Plans</h2>
 
@@ -273,7 +277,7 @@ const Home = () => {
               ))}
             </div>
           </section>
-        )}
+        )} */}
       </main>
     </div>
   );
