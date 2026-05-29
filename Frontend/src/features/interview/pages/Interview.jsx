@@ -171,7 +171,7 @@ function Interview() {
     <div className="min-h-screen bg-background text-foreground">
       <LoggedInNavbar />
       <div className="w-full p-4 sm:p-6">
-        <div className="mx-auto flex w-full max-w-7xl flex-col lg:flex-row rounded-2xl border border-border bg-card overflow-hidden">
+        <div className="mx-auto flex w-full max-w-7xl flex-col lg:flex-row rounded-2xl border border-border bg-card overflow-hidden lg:h-[calc(100vh-7rem)]">
           {/* Left Nav */}
           <nav className="w-full lg:w-[220px] flex-shrink-0 p-5 lg:p-6 flex flex-col gap-4 lg:justify-between border-b lg:border-b-0 lg:border-r border-border">
             <div className="flex flex-col gap-1">
@@ -186,7 +186,7 @@ function Interview() {
                     <button
                       key={item.id}
                       onClick={() => setActiveNav(item.id)}
-                      className={`flex items-center gap-2.5 px-3 py-2.5 rounded-lg text-sm text-left transition-colors whitespace-nowrap ${
+                      className={`flex items-center cursor-pointer gap-2.5 px-3 py-2.5 rounded-lg text-sm text-left transition-colors whitespace-nowrap ${
                         active
                           ? "bg-primary/10 text-primary"
                           : "text-muted-foreground hover:bg-[var(--surface-elevated)] hover:text-foreground"
@@ -205,7 +205,7 @@ function Interview() {
                 toast.success("Resume download coming soon");
                 setTimeout(() => {}, 3000);
               }}
-              className="inline-flex items-center justify-center gap-2 rounded-lg bg-gradient-primary px-4 py-2.5 text-sm font-semibold text-primary-foreground shadow-glow transition-transform hover:opacity-90 active:scale-[0.98]"
+              className="inline-flex items-center cursor-pointer justify-center gap-2 rounded-lg bg-gradient-primary px-4 py-2.5 text-sm font-semibold text-primary-foreground shadow-glow transition-transform hover:opacity-90 active:scale-[0.98]"
             >
               <Sparkles className="h-4 w-4" />
               Download Resume
@@ -213,7 +213,8 @@ function Interview() {
           </nav>
 
           {/* Center */}
-          <main className="flex-1 no-scrollbar p-5 sm:p-7 lg:max-h-[calc(100vh-6rem)] lg:overflow-y-auto border-b lg:border-b-0 lg:border-r border-border">
+          {/* <main className="flex-1 no-scrollbar p-5 sm:p-7 lg:max-h-[calc(100vh-6rem)] lg:overflow-y-auto border-b lg:border-b-0 lg:border-r border-border"> */}
+          <main className="flex-1 min-h-0 no-scrollbar p-5 sm:p-7 overflow-y-auto">
             <div
               id="center"
               className="flex items-baseline gap-3 pb-4 mb-6 border-b border-border"
@@ -225,7 +226,7 @@ function Interview() {
             </div>
 
             {activeNav === "roadmap" ? (
-              <div className="relative flex flex-col">
+              <div className="relative flex flex-col gap-2 min-h-full">
                 <span className="absolute left-[22px] top-0 bottom-0 w-0.5 rounded bg-gradient-to-b from-primary to-primary/10" />
                 {report.preparationPlan.map((d) => (
                   <RoadMapDay key={d.day} day={d} />
